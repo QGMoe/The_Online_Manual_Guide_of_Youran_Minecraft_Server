@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>悠然手册 内容管理</title>
+  <link href="config.yml" type="text/yaml" rel="cms-config-url">
+  <script>
+    /* Sveltia CMS 默认会从 unpkg.com 取界面语言包并检查新版本（国内访问不稳定）。
+       语言包已随站点放在 locales/，这里把这两类请求改到本站，其余请求原样放行。
+       Sveltia CMS 的 JS 与分块（chunks/）也在本目录，不依赖任何 CDN。 */
+    (function () {
+      var CMS_VERSION = "0.252.0";
+      var nativeFetch = window.fetch.bind(window);
+      window.fetch = function (input, init) {
+        var url = typeof input === "string" ? input : (input && input.url) || String(input);
+        var locale = url.match(/^https:\/\/unpkg\.com\/@sveltia\/cms@[^/]+\/locales\/([A-Za-z-]+\.json)$/);
+        if (locale) return nativeFetch(new URL("locales/" + locale[1], document.baseURI).href, init);
+        if (url === "https://unpkg.com/@sveltia/cms/package.json") {
+          return Promise.resolve(new Response(JSON.stringify({ version: CMS_VERSION }), {
+            headers: { "Content-Type": "application/json" }
+          }));
+        }
+        return nativeFetch(input, init);
+      };
+    })();
+
+    /* Sveltia CMS 的界面字体（含图标字体 Material Symbols）原本从 cdn.jsdelivr.net 加载。
+       这里用 FontFace 接口把同名字体指向本站 fonts/ 里的文件（来自 Fontsource 的同版本 woff2，SIL OFL 许可），
+       后加入的字体优先于样式表里的同名 @font-face，因此不会再请求 jsdelivr。 */
+    (function () {
+      if (!window.FontFace || !document.fonts) return;
+      var base = new URL("fonts/", document.baseURI).href;
+      var faces = [
+        ["Source Sans 3", "source-sans-3-vf-5.3.1-latin-wght-normal.woff2", { style: "normal", weight: "200 900", display: "swap" }],
+        ["Noto Mono", "noto-mono-5.3.0-latin-400-normal.woff2", { style: "normal", weight: "400", display: "swap" }],
+        ["Material Symbols Outlined", "material-symbols-outlined-vf-5.3.9-latin-wght-normal.woff2", {
+          style: "normal", weight: "400", display: "block",
+          unicodeRange: "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+        }]
+      ];
+      faces.forEach(function (f) {
+        try {
+          var face = new FontFace(f[0], "url(" + base + f[1] + ")", f[2]);
+          face.load().then(function () { document.fonts.add(face); }, function () {});
+        } catch (e) {}
+      });
+    })();
+  </script>
+</head>
+<body>
+  <script src="sveltia-cms.js"></script>
+</body>
+</html>

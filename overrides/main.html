@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  <meta name="keywords" content="悠然MC服务器网页手册,悠然服务器,悠然MC服务器">
+{% endblock %}
+
+{# 每页正文底部：原 GitBook 的页脚（docs/FOOTER.md） #}
+{% block content %}
+  {{ super() }}
+  {% if footer_html %}
+    <hr>
+    <div class="youran-footer">{{ footer_html }}</div>
+  {% endif %}
+{% endblock %}

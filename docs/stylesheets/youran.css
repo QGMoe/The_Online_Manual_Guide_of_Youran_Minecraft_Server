@@ -1,0 +1,171 @@
+/* 悠然手册站点样式。配色与网页面板（YouranWhitelist 的 youran_web）一致，固定用面板默认主题“草方块”（grass），
+ * 跟随系统浅 / 深色（Material 的切换开关保留）。字体栈、圆角、阴影取自悠然官网（YouranOfficial 的 redesign 分支），
+ * 只取设计变量，不搬官网的版式。
+ *
+ * 取值来源：
+ *   - 主题色 accent / accent_fill / accent_fill_hover / accent_soft：面板 youran_web/themes.toml 的 id = "grass"（light / dark 两组）
+ *   - 中性色 bg / card / soft / text / muted / border、阴影 shadow-sm / shadow-lg、语义色 ok / warn / danger：面板 youran_web/static/style.css
+ *   - 字体栈：正文取面板 style.css 的 --font（服主 10-31 定，只留必要的几个字体名），等宽取官网 dist/assets/site.css（与面板相同）；圆角 10px / 14px：官网与面板相同
+ * 变量名沿用面板（--yr- 前缀），方便以后对照面板更新。
+ *
+ * 要换主题颜色，只改下面浅色、深色两段 --yr-* 变量；其余规则都是引用这些变量。
+ */
+
+/* ---- 面板的颜色（浅色）---- */
+body[data-md-color-scheme="default"] {
+  --yr-bg: #f2f4f3;            /* style.css --bg：页面底色 */
+  --yr-card: #ffffff;          /* --card：顶栏、卡片 */
+  --yr-soft: #f5f7f6;          /* --soft：悬停、代码底色 */
+  --yr-text: #1f2328;          /* --text */
+  --yr-muted: #5d6570;         /* --muted */
+  --yr-border: #e2e6e5;        /* --border */
+  --yr-shadow-sm: 0 1px 2px rgba(15, 23, 42, .05), 0 1px 3px rgba(15, 23, 42, .04);        /* --shadow-sm */
+  --yr-shadow-lg: 0 12px 32px rgba(15, 23, 42, .14), 0 2px 6px rgba(15, 23, 42, .06);      /* --shadow-lg */
+  --yr-accent: #2f7d4f;        /* themes.toml grass.light.accent：链接、选中项文字 */
+  --yr-accent-fill: #2f7d4f;   /* grass.light.accent_fill：实心按钮底色（白字） */
+  --yr-accent-fill-hover: #276a43;   /* grass.light.accent_fill_hover */
+  --yr-accent-soft: #ecf6f0;   /* grass.light.accent_soft：选中项浅底 */
+  --yr-ok: #217a45;     --yr-ok-bg: #e6f4ec;                    /* style.css 语义色，不随主题变化 */
+  --yr-warn: #8a5207;   --yr-warn-bg: #fdf1dc;   --yr-warn-border: #e4b15a;
+  --yr-danger: #b42318; --yr-danger-bg: #fdecea; --yr-danger-border: #efc2c2;
+}
+
+/* ---- 面板的颜色（深色）---- */
+body[data-md-color-scheme="slate"] {
+  --yr-bg: #111315;
+  --yr-card: #1a1d21;
+  --yr-soft: #20242a;
+  --yr-text: #e7e9ec;
+  --yr-muted: #9ea5af;
+  --yr-border: #2b3036;
+  --yr-shadow-sm: 0 1px 2px rgba(0, 0, 0, .35);
+  --yr-shadow-lg: 0 16px 40px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .04);
+  --yr-accent: #5cbf83;        /* grass.dark.accent */
+  --yr-accent-fill: #2a7a4b;   /* grass.dark.accent_fill */
+  --yr-accent-fill-hover: #246b41;   /* grass.dark.accent_fill_hover */
+  --yr-accent-soft: rgba(92, 191, 131, .14);   /* grass.dark.accent_soft */
+  --yr-ok: #5fd08f;     --yr-ok-bg: rgba(76, 194, 122, .13);
+  --yr-warn: #f0b555;   --yr-warn-bg: rgba(240, 181, 85, .12);   --yr-warn-border: #7a5a22;
+  --yr-danger: #f38b85; --yr-danger-bg: rgba(240, 128, 121, .12); --yr-danger-border: #6a3331;
+}
+
+/* ---- 与主题无关的设计变量 ---- */
+:root {
+  --yr-radius: 10px;           /* 官网与面板的 --radius */
+  --yr-radius-lg: 14px;        /* 官网与面板的 --radius-lg */
+
+  /* Material 的字体栈是 var(--md-text-font), -apple-system, ... ；font: false 时该变量没有值，这里直接给面板的字体栈 */
+  --md-text-font: system-ui, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --md-code-font: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+/* ---- 映射到 Material 的变量（浅、深色共用）---- */
+body[data-md-color-scheme="default"],
+body[data-md-color-scheme="slate"] {
+  --md-default-bg-color: var(--yr-bg);
+  --md-default-bg-color--light: var(--yr-card);
+  --md-default-bg-color--lighter: var(--yr-soft);
+  --md-default-bg-color--lightest: var(--yr-soft);
+  --md-default-fg-color: var(--yr-text);
+  --md-default-fg-color--light: var(--yr-muted);
+  --md-default-fg-color--lighter: var(--yr-border);
+  --md-default-fg-color--lightest: var(--yr-soft);
+
+  /* 顶栏：与面板 .topbar 一致，卡片色底、下方一条细边线 */
+  --md-primary-fg-color: var(--yr-card);
+  --md-primary-fg-color--light: var(--yr-soft);
+  --md-primary-fg-color--dark: var(--yr-card);
+  --md-primary-bg-color: var(--yr-text);
+  --md-primary-bg-color--light: var(--yr-muted);
+
+  --md-accent-fg-color: var(--yr-accent);
+  --md-accent-fg-color--transparent: var(--yr-accent-soft);
+  --md-accent-bg-color: var(--yr-accent-fill);
+  --md-accent-bg-color--light: #fff;
+
+  --md-typeset-color: var(--yr-text);
+  --md-typeset-a-color: var(--yr-accent);
+  --md-typeset-table-color: var(--yr-border);
+  --md-typeset-table-color--light: var(--yr-soft);
+
+  --md-code-bg-color: var(--yr-soft);
+  --md-code-fg-color: var(--yr-text);
+
+  --md-footer-bg-color: var(--yr-bg);
+  --md-footer-bg-color--dark: var(--yr-bg);
+  --md-footer-fg-color: var(--yr-muted);
+  --md-footer-fg-color--light: var(--yr-muted);
+  --md-footer-fg-color--lighter: var(--yr-muted);
+
+  --md-shadow-z1: var(--yr-shadow-sm);
+  --md-shadow-z2: var(--yr-shadow-lg);
+  --md-shadow-z3: var(--yr-shadow-lg);
+}
+
+/* ---- 少量组件微调：圆角、阴影、边线 ---- */
+.md-header {
+  background-color: var(--yr-card);
+  box-shadow: none;
+  border-bottom: 1px solid var(--yr-border);
+}
+.md-header[data-md-state="shadow"] { box-shadow: var(--yr-shadow-sm); }
+
+.md-search__form { background-color: var(--yr-soft); border-radius: var(--yr-radius); }
+.md-search__form:hover { background-color: var(--yr-soft); }
+.md-search__input::placeholder { color: var(--yr-muted); }
+.md-search__output { border-radius: 0 0 var(--yr-radius) var(--yr-radius); }
+[data-md-toggle="search"]:checked ~ .md-header .md-search__inner { box-shadow: var(--yr-shadow-lg); }
+.md-search__scrollwrap { background-color: var(--yr-card); }
+@media screen and (min-width: 60em) {
+  .md-search__inner { border-radius: var(--yr-radius); }
+}
+
+.md-nav__link--active,
+.md-nav__item .md-nav__link--active { color: var(--yr-accent); font-weight: 650; }
+
+.md-typeset a { text-underline-offset: 3px; }
+.md-typeset img,
+.md-typeset .admonition,
+.md-typeset details,
+.md-typeset pre > code { border-radius: var(--yr-radius); }
+.md-typeset .highlight { border-radius: var(--yr-radius); }
+.md-typeset table:not([class]) {
+  background-color: var(--yr-card);
+  border: .05rem solid var(--yr-border);
+  border-radius: var(--yr-radius);
+  box-shadow: var(--yr-shadow-sm);
+}
+.md-typeset hr { border-bottom-color: var(--yr-border); }
+.md-typeset .youran-footer { color: var(--yr-muted); font-size: .7rem; }
+
+.md-footer { border-top: 1px solid var(--yr-border); }
+.md-footer-meta { background-color: var(--yr-bg); }
+.md-top { background-color: var(--yr-card); color: var(--yr-text); border-radius: var(--yr-radius); box-shadow: var(--yr-shadow-lg); }
+
+.md-typeset :focus-visible,
+.md-nav :focus-visible,
+.md-header :focus-visible { outline: 3px solid var(--yr-accent); outline-offset: 2px; border-radius: 4px; }
+
+/* 标题：官网是正常粗细、正文色（Material 默认是细体、浅灰） */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 { color: var(--yr-text); font-weight: 700; letter-spacing: normal; }
+.md-typeset h1 { font-size: 1.9em; }
+
+/* 语义色（面板的 ok / warn / danger，不随主题变化）：提示块的 success / warning / danger */
+.md-typeset .admonition.success,
+.md-typeset details.success { border-color: var(--yr-ok); }
+.md-typeset .success > .admonition-title,
+.md-typeset .success > summary { background-color: var(--yr-ok-bg); }
+.md-typeset .admonition.warning,
+.md-typeset details.warning { border-color: var(--yr-warn-border); }
+.md-typeset .warning > .admonition-title,
+.md-typeset .warning > summary { background-color: var(--yr-warn-bg); }
+.md-typeset .admonition.danger,
+.md-typeset details.danger { border-color: var(--yr-danger); }
+.md-typeset .danger > .admonition-title,
+.md-typeset .danger > summary { background-color: var(--yr-danger-bg); }
+
+/* 实心按钮（白字）：面板的 accent_fill / accent_fill_hover */
+.md-typeset .md-button--primary { background-color: var(--yr-accent-fill); border-color: var(--yr-accent-fill); color: #fff; }
+.md-typeset .md-button--primary:hover { background-color: var(--yr-accent-fill-hover); border-color: var(--yr-accent-fill-hover); color: #fff; }
