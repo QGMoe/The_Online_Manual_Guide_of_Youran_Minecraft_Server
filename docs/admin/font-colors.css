@@ -1,0 +1,83 @@
+/* CMS 预览窗格里 <font> 的颜色映射，与网站（stylesheets/youran.css 末尾“页面里 <font> 的文字颜色”一节）保持一致：
+ * red / green / orange 用面板的语义色；十六进制色里看不清的在浅色 / 深色下各换成同色相的可读色，其余原色。
+ * 改动其中一处时请同步另一处。深浅色跟随系统（预览窗格是独立的 iframe，拿不到 Sveltia 自己设置的深浅色）。
+ * 页面里的 <font> 不会被改写，这里只影响 CMS 里的显示。
+ *
+ * 注册了自定义预览样式后，Sveltia 不再给预览窗格套默认样式，所以下面先给一点基本排版。 */
+html { color-scheme: light dark; }
+body { margin: 0; font: 16px/1.75 system-ui, "PingFang SC", "Microsoft YaHei", sans-serif; overflow-wrap: anywhere; }
+h1, h2, h3 { line-height: 1.35; }
+img { max-width: 100%; height: auto; }
+table { border-collapse: collapse; }
+th, td { border: 1px solid #8886; padding: 4px 10px; }
+code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; background: #8882; padding: 0 .3em; border-radius: 4px; }
+a { color: #2f7d4f; }
+@media (prefers-color-scheme: dark) { a { color: #5cbf83; } }
+
+:root {
+  --yrf-danger: #b42318;
+  --yrf-ok: #217a45;
+  --yrf-warn: #8a5207;
+  --yrf-ffdb56: #896c00;
+  --yrf-ffc300: #8c6b00;
+  --yrf-ffb700: #916800;
+  --yrf-1fff00: #108200;
+  --yrf-5100ff: #5100FF;
+  --yrf-0003ff: #0003FF;
+  --yrf-006bff: #0066f4;
+  --yrf-ff5733: #d82600;
+  --yrf-ff33ea: #cb00b6;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --yrf-danger: #f38b85;
+    --yrf-ok: #5fd08f;
+    --yrf-warn: #f0b555;
+    --yrf-ffdb56: #FFDB56;
+    --yrf-ffc300: #FFC300;
+    --yrf-ffb700: #FFB700;
+    --yrf-1fff00: #1FFF00;
+    --yrf-5100ff: #9c6eff;
+    --yrf-0003ff: #797bff;
+    --yrf-006bff: #3288ff;
+    --yrf-ff5733: #FF5733;
+    --yrf-ff33ea: #FF33EA;
+  }
+}
+
+font[color~="red" i],
+font[style*="color:red" i],
+font[style*="color: red" i] { color: var(--yrf-danger) !important; }
+font[color~="green" i],
+font[style*="color:green" i],
+font[style*="color: green" i] { color: var(--yrf-ok) !important; }
+font[color~="orange" i],
+font[style*="color:orange" i],
+font[style*="color: orange" i] { color: var(--yrf-warn) !important; }
+font[color~="#FFDB56" i],
+font[style*="color:#FFDB56" i],
+font[style*="color: #FFDB56" i] { color: var(--yrf-ffdb56) !important; }
+font[color~="#FFC300" i],
+font[style*="color:#FFC300" i],
+font[style*="color: #FFC300" i] { color: var(--yrf-ffc300) !important; }
+font[color~="#FFB700" i],
+font[style*="color:#FFB700" i],
+font[style*="color: #FFB700" i] { color: var(--yrf-ffb700) !important; }
+font[color~="#1FFF00" i],
+font[style*="color:#1FFF00" i],
+font[style*="color: #1FFF00" i] { color: var(--yrf-1fff00) !important; }
+font[color~="#5100FF" i],
+font[style*="color:#5100FF" i],
+font[style*="color: #5100FF" i] { color: var(--yrf-5100ff) !important; }
+font[color~="#0003FF" i],
+font[style*="color:#0003FF" i],
+font[style*="color: #0003FF" i] { color: var(--yrf-0003ff) !important; }
+font[color~="#006BFF" i],
+font[style*="color:#006BFF" i],
+font[style*="color: #006BFF" i] { color: var(--yrf-006bff) !important; }
+font[color~="#FF5733" i],
+font[style*="color:#FF5733" i],
+font[style*="color: #FF5733" i] { color: var(--yrf-ff5733) !important; }
+font[color~="#FF33EA" i],
+font[style*="color:#FF33EA" i],
+font[style*="color: #FF33EA" i] { color: var(--yrf-ff33ea) !important; }
