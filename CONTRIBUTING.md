@@ -37,6 +37,33 @@ python3 -m venv .venv
 
 配置在 `docs/admin/config.yml`（后端 GitHub，仓库 `QGMoe/The_Online_Manual_Guide_of_Youran_Minecraft_Server`，分支 `master`）。新建页面的文件名自动取 `page-日期-时间`，不含正文标题；需要好看的网址时，在 GitHub 上把文件改名并同步 `.nav.yml`。
 
+## 编辑模式、彩色文字与粗体
+
+### 两种编辑模式
+
+正文字段有两种模式，编辑框右上角的 Markdown 图标可切换，默认是**源码模式**（直接编辑 Markdown 文本）。
+
+- **源码模式**：保存时只改动你编辑过的字符，其余原样写回。已有页面一律用这个模式。
+- **富文本模式**：Sveltia 读入后在内部重新排版，保存时整篇重写。对本站现有页面实测（逐页打开、只改一个字、保存、与原文对比）会出现：`**<font …>…</font>**` 外层的粗体被拆开或丢掉；行内代码、列表里的反引号错位；`_斜体_` 变成 `*斜体*`、网址里的 `_` 被加反斜杠、`~` 被加反斜杠；表格重新排版（加空格、改分隔行）；空行增减。因此富文本模式只适合新建页面，或确认页面里没有上述写法时使用。
+
+### 彩色文字
+
+页面里的彩色文字是 `<font color="red">文字</font>` 这样的 HTML（从 GitBook 迁来，还有 `<font style="color:red;">`、`<font color="#FF33EA ">`、`<font color="red" style="font-size:150%;">` 等写法）。工具栏“插入 → 彩色文字”（`docs/admin/font-color.js`）：
+
+- **源码模式**：在光标处插入 `<font color="red">文字</font>`，之后直接改文字和颜色。
+- **富文本模式**：弹出对话框，填“文字”、选“颜色”（红、绿、橙、蓝、紫、粉，或选“自定义”后填 `#RRGGBB`）；点击已有的彩色文字，可在同一个对话框里修改。
+- **没改的不动**：组件把读入的原文逐字存着，文字和颜色都没改时原样写回；只改文字就只换标签之间的文字；只改颜色就只换颜色值，`font-size` 等其他属性保留。新插入的才写成规范的 `<font color="…">`。
+- **预览**：预览窗格里按网站的颜色显示（`docs/admin/font-colors.css`，随系统深浅色切换）。
+
+网站上的颜色由 `docs/stylesheets/youran.css` 末尾“页面里 `<font>` 的文字颜色”一节决定：`red` / `green` / `orange` 取主题的危险 / 成功 / 警告文字色；其余十六进制色浅色下保持原色，只有在浅色底上看不清的亮黄、亮绿以及在深色底上看不清的蓝紫色换成同色相的可读色。`font-colors.css` 是它的副本，**改其中一处时同步另一处**。页面里的 `<font>` 本身不被改写。
+
+### 粗体与中日韩标点
+
+CommonMark 规定收尾的 `**` 前面是标点、后面紧跟文字时不算粗体（如 `**欢迎来到手册！**在这里`），汉字之间不写空格，所以这类写法在 CommonMark 解析器里会露出星号；网站用的 Python-Markdown 没有这个限制，显示正常。
+
+- **预览窗格**：Sveltia 用 marked 渲染预览，`docs/admin/cjk-friendly.js` 通过 `marked.use()` 补上了中日韩友好的规则（自写，无第三方代码），预览与网站一致。
+- **编辑器本身**：源码模式不解析 Markdown，保存原样。富文本模式用 Lexical 自带的 Markdown 规则，没有对外开放的扩展口（Sveltia 不使用 micromark / remark，`CMS.registerRemarkPlugin` 只是 Decap 兼容的空接口），所以无法在不改动 Sveltia 打包文件的前提下让它也按中日韩规则识别；这是上面“已有页面用源码模式”的原因之一。
+
 ## 上线需要服主在上游仓库做的设置
 
 1. 上游仓库 Settings → Pages → Build and deployment → **Source 选 “GitHub Actions”**（不再用 gh-pages 分支）。
