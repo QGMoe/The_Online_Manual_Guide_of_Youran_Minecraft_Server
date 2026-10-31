@@ -1,0 +1,9 @@
+# @sveltia/cms 0.252.0 (npm) 的自托管文件，sha256sum -c SHA256SUMS 可校验
+d42c8f272ecba2cca23e8ad0edb23a7382e4de66f040f1676dfe22145ca96651  sveltia-cms.js
+c547ffa32a957fde7eadbca92ee3290a757150c470f7c66886e22d2ac1b12145  chunks/git.js
+709a4779022db236f08e6a5316d52ad6cf8453018d46a004906c242826c17ee6  chunks/qrcode.js
+55105ab1030a24f007904cbab670655ce1d948e8d5f1a237ebed1908871b44e9  chunks/react-dom.js
+d0e9044430006c5bb48f477501a5af465f0a6377d2fcd7495aa215b8b75aaee3  chunks/assets/rolldown-runtime-BWaJ3C7D.js
+cd67428fb35bdc2b137521b5e3ec30b1468e65f41b3bd3b797e0b6946491082e  locales/zh-CN.json
+9bc6fb46c8ae0e171339a703ce8f5d1b0c738fc71861d1418f6b0fa63607c4b2  locales/zh-TW.json
+dcbe3c626d85741f6fabefed0b34d07a2e92c032f63aa21c0279062363859c32  LICENSE-sveltia-cms.txt

@@ -1,0 +1,83 @@
+# Sveltia CMS 配置（MIT 许可，v0.252.0，自托管于本目录）
+# 登录方式：GitHub 细粒度个人访问令牌（登录界面选“使用访问令牌登录”），不需要 OAuth 中转或任何后端。
+backend:
+  name: github
+  repo: QGMoe/The_Online_Manual_Guide_of_Youran_Minecraft_Server
+  branch: master
+  commit_messages:
+    create: "docs: 新建页面 {{collection}}/{{slug}}"
+    update: "docs: 修改页面 {{collection}}/{{slug}}"
+    delete: "docs: 删除页面 {{collection}}/{{slug}}"
+    uploadMedia: "docs: 上传图片 {{path}}"
+    deleteMedia: "docs: 删除图片 {{path}}"
+
+site_url: https://docs.youran.qingu.moe/
+display_url: https://docs.youran.qingu.moe/
+
+# 图片统一放在 docs/assets/images/，与迁移进来的图片在一起
+media_folder: docs/assets/images
+public_folder: /assets/images
+
+collections:
+  # 首页与每页底部的页脚
+  - name: home
+    label: 首页与页脚
+    label_singular: 页面
+    files:
+      - name: intro
+        label: 简介（首页）
+        file: docs/README.md
+        media_folder: assets/images
+        public_folder: assets/images
+        fields:
+          - { name: body, label: 正文, widget: markdown }
+      - name: footer
+        label: 页脚（显示在每页底部）
+        file: docs/FOOTER.md
+        media_folder: assets/images
+        public_folder: assets/images
+        fields:
+          - { name: body, label: 正文, widget: markdown }
+
+  # 各章：在对应章节下新建页面，不需要改目录——新页面会自动排在本章已有页面之后，标题取页面里的第一个一级标题（# 标题）
+  - name: section1
+    label: 第一章 入门
+    label_singular: 页面
+    folder: docs/section1
+    extension: md
+    create: true
+    slug: "page-{{year}}{{month}}{{day}}-{{hour}}{{minute}}{{second}}"
+    summary: "{{body | truncate(40)}}"
+    preview_path: "section1/{{slug}}.html"
+    media_folder: ../assets/images
+    public_folder: ../assets/images
+    fields:
+      - { name: body, label: 正文, widget: markdown }
+
+  - name: section2
+    label: 第二章 认识悠然
+    label_singular: 页面
+    folder: docs/section2
+    extension: md
+    create: true
+    slug: "page-{{year}}{{month}}{{day}}-{{hour}}{{minute}}{{second}}"
+    summary: "{{body | truncate(40)}}"
+    preview_path: "section2/{{slug}}.html"
+    media_folder: ../assets/images
+    public_folder: ../assets/images
+    fields:
+      - { name: body, label: 正文, widget: markdown }
+
+  - name: section3
+    label: 第三章 生存前期
+    label_singular: 页面
+    folder: docs/section3
+    extension: md
+    create: true
+    slug: "page-{{year}}{{month}}{{day}}-{{hour}}{{minute}}{{second}}"
+    summary: "{{body | truncate(40)}}"
+    preview_path: "section3/{{slug}}.html"
+    media_folder: ../assets/images
+    public_folder: ../assets/images
+    fields:
+      - { name: body, label: 正文, widget: markdown }
