@@ -24,7 +24,9 @@ a { color: #2f7d4f; }
   --yrf-1fff00: #108200;
   --yrf-5100ff: #5100FF;
   --yrf-0003ff: #0003FF;
-  --yrf-006bff: #006BFF;
+  --yrf-006bff: #0066f4;
+  --yrf-ff5733: #d82600;
+  --yrf-ff33ea: #cb00b6;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -38,6 +40,8 @@ a { color: #2f7d4f; }
     --yrf-5100ff: #9c6eff;
     --yrf-0003ff: #797bff;
     --yrf-006bff: #3288ff;
+    --yrf-ff5733: #FF5733;
+    --yrf-ff33ea: #FF33EA;
   }
 }
 
@@ -71,3 +75,9 @@ font[style*="color: #0003FF" i] { color: var(--yrf-0003ff) !important; }
 font[color~="#006BFF" i],
 font[style*="color:#006BFF" i],
 font[style*="color: #006BFF" i] { color: var(--yrf-006bff) !important; }
+font[color~="#FF5733" i],
+font[style*="color:#FF5733" i],
+font[style*="color: #FF5733" i] { color: var(--yrf-ff5733) !important; }
+font[color~="#FF33EA" i],
+font[style*="color:#FF33EA" i],
+font[style*="color: #FF33EA" i] { color: var(--yrf-ff33ea) !important; }

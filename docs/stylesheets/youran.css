@@ -200,6 +200,13 @@ body[data-md-color-scheme="default"] .md-typeset font[color~="#FFB700" i],
 body[data-md-color-scheme="default"] .md-typeset font[style*="color:#FFB700" i] { color: #916800 !important; }  /* 橙黄 1.58:1 → 4.54:1 */
 body[data-md-color-scheme="default"] .md-typeset font[color~="#1FFF00" i],
 body[data-md-color-scheme="default"] .md-typeset font[style*="color:#1FFF00" i] { color: #108200 !important; }  /* 亮绿 1.24:1 → 4.51:1 */
+/* 浅色：原色在 #f2f4f3 上对比度 < 4.5:1 的（服主 10-31 同意换成同色相的深一点的颜色） */
+body[data-md-color-scheme="default"] .md-typeset font[color~="#FF5733" i],
+body[data-md-color-scheme="default"] .md-typeset font[style*="color:#FF5733" i] { color: #d82600 !important; }  /* 橙红 2.85:1 → 4.53:1 */
+body[data-md-color-scheme="default"] .md-typeset font[color~="#FF33EA" i],
+body[data-md-color-scheme="default"] .md-typeset font[style*="color:#FF33EA" i] { color: #cb00b6 !important; }  /* 粉 2.75:1 → 4.51:1 */
+body[data-md-color-scheme="default"] .md-typeset font[color~="#006BFF" i],
+body[data-md-color-scheme="default"] .md-typeset font[style*="color:#006BFF" i] { color: #0066f4 !important; }  /* 蓝 4.18:1 → 4.52:1 */
 
 /* 深色：原色在 #1a1d21 上对比度 < 4.5:1 的 */
 body[data-md-color-scheme="slate"] .md-typeset font[color~="#5100FF" i],

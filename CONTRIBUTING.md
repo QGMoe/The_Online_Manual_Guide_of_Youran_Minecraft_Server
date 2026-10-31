@@ -50,7 +50,7 @@ python3 -m venv .venv
 页面里的彩色文字是 `<font color="red">文字</font>` 这样的 HTML（从 GitBook 迁来，还有 `<font style="color:red;">`、`<font color="#FF33EA ">`、`<font color="red" style="font-size:150%;">` 等写法）。工具栏“插入 → 彩色文字”（`docs/admin/font-color.js`）在光标处插入 `<font color="red">文字</font>`，之后直接改文字和颜色。常用的颜色名：`red`（红）、`green`（绿）、`orange`（橙），网站上按主题色显示；也可以写 `#RRGGBB`。（组件也支持富文本模式下的对话框与“没改的原样写回”，现在富文本模式没开，用不到。）
 - **预览**：预览窗格里按网站的颜色显示（`docs/admin/font-colors.css`，随系统深浅色切换）。
 
-网站上的颜色由 `docs/stylesheets/youran.css` 末尾“页面里 `<font>` 的文字颜色”一节决定：`red` / `green` / `orange` 取主题的危险 / 成功 / 警告文字色；其余十六进制色浅色下保持原色，只有在浅色底上看不清的亮黄、亮绿以及在深色底上看不清的蓝紫色换成同色相的可读色。`font-colors.css` 是它的副本，**改其中一处时同步另一处**。页面里的 `<font>` 本身不被改写。
+网站上的颜色由 `docs/stylesheets/youran.css` 末尾“页面里 `<font>` 的文字颜色”一节决定：`red` / `green` / `orange` 取主题的危险 / 成功 / 警告文字色；其余十六进制色：在浅色底上对比度不足 4.5:1 的（亮黄、琥珀、亮绿、橙红、粉、蓝）浅色下换成同色相的深一点的颜色，在深色底上不足的（蓝紫色）深色下调亮，其余保持原色。`font-colors.css` 是它的副本，**改其中一处时同步另一处**。页面里的 `<font>` 本身不被改写。
 
 ### 粗体与中日韩标点
 
