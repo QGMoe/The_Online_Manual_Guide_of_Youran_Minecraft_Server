@@ -169,3 +169,42 @@ body[data-md-color-scheme="slate"] {
 /* 实心按钮（白字）：面板的 accent_fill / accent_fill_hover */
 .md-typeset .md-button--primary { background-color: var(--yr-accent-fill); border-color: var(--yr-accent-fill); color: #fff; }
 .md-typeset .md-button--primary:hover { background-color: var(--yr-accent-fill-hover); border-color: var(--yr-accent-fill-hover); color: #fff; }
+
+/* ---- 页面里 <font> 的文字颜色 ----
+ * 页面是从 GitBook 迁来的，用 <font color="red">、<font style="color:red;"> 等写法上色；页面内容不改，这里按属性值改显示的颜色。
+ * 两种写法（color= 属性与 style="color:…"）、大小写、末尾分号与空格都按同一规则匹配；行内 style 的优先级最高，所以用 !important。
+ *
+ * 1. red / green / orange：映射到上面面板的语义色（danger / ok / warn），浅色、深色各一套。
+ *    对比度（WCAG，底色取页面底 --yr-bg 与卡片 --yr-card 里较低的）：
+ *      浅色 danger #b42318 5.95:1、ok #217a45 4.83:1、warn #8a5207 5.78:1；深色 danger #f38b85 7.12:1、ok #5fd08f 8.78:1、warn #f0b555 9.22:1（深色底取 #1a1d21，对 #111315 更高）。
+ * 2. 自定义十六进制色：只对看不清的改。浅色底上亮黄 / 亮绿等对比度不足 3:1 的换成同色相的深色（目标 ≥ 4.5:1）；
+ *    深色底上对比度不足 4.5:1 的蓝紫色换成同色相的亮色（目标 ≥ 4.5:1，在 #111315 / #1a1d21 / #20242a 上都满足）。
+ *    其余保持原色。font-size 等其他属性不动。
+ */
+.md-typeset font[color~="red" i],
+.md-typeset font[style*="color:red" i],
+.md-typeset font[style*="color: red" i] { color: var(--yr-danger) !important; }
+.md-typeset font[color~="green" i],
+.md-typeset font[style*="color:green" i],
+.md-typeset font[style*="color: green" i] { color: var(--yr-ok) !important; }
+.md-typeset font[color~="orange" i],
+.md-typeset font[style*="color:orange" i],
+.md-typeset font[style*="color: orange" i] { color: var(--yr-warn) !important; }
+
+/* 浅色：原色在 #f2f4f3 上对比度 < 3:1 的 */
+body[data-md-color-scheme="default"] .md-typeset font[color~="#FFDB56" i],
+body[data-md-color-scheme="default"] .md-typeset font[style*="color:#FFDB56" i] { color: #896c00 !important; }  /* 亮黄 1.22:1 → 4.52:1 */
+body[data-md-color-scheme="default"] .md-typeset font[color~="#FFC300" i],
+body[data-md-color-scheme="default"] .md-typeset font[style*="color:#FFC300" i] { color: #8c6b00 !important; }  /* 琥珀 1.46:1 → 4.51:1 */
+body[data-md-color-scheme="default"] .md-typeset font[color~="#FFB700" i],
+body[data-md-color-scheme="default"] .md-typeset font[style*="color:#FFB700" i] { color: #916800 !important; }  /* 橙黄 1.58:1 → 4.54:1 */
+body[data-md-color-scheme="default"] .md-typeset font[color~="#1FFF00" i],
+body[data-md-color-scheme="default"] .md-typeset font[style*="color:#1FFF00" i] { color: #108200 !important; }  /* 亮绿 1.24:1 → 4.51:1 */
+
+/* 深色：原色在 #1a1d21 上对比度 < 4.5:1 的 */
+body[data-md-color-scheme="slate"] .md-typeset font[color~="#5100FF" i],
+body[data-md-color-scheme="slate"] .md-typeset font[style*="color:#5100FF" i] { color: #9c6eff !important; }  /* 紫 2.25:1 → 4.90:1 */
+body[data-md-color-scheme="slate"] .md-typeset font[color~="#0003FF" i],
+body[data-md-color-scheme="slate"] .md-typeset font[style*="color:#0003FF" i] { color: #797bff !important; }  /* 蓝 1.98:1 → 4.90:1 */
+body[data-md-color-scheme="slate"] .md-typeset font[color~="#006BFF" i],
+body[data-md-color-scheme="slate"] .md-typeset font[style*="color:#006BFF" i] { color: #3288ff !important; }  /* 亮蓝 3.66:1 → 4.91:1 */
