@@ -5,9 +5,7 @@
 
 服务器官网：
 
-[https://www.youranserver.top/](https://www.youranserver.top/)
-
-[http://mirror.youranserver.top/](http://mirror.youranserver.top/) （备用）
+[https://youran.qingu.moe/](https://youran.qingu.moe/)
 
 服务器MC百科找服玩页面：
 
