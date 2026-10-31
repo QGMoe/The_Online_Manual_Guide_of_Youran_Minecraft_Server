@@ -5,7 +5,7 @@
 
 打开网页地图，仔细看看明湖城周边的地形地貌：
 
-![屏幕截图31223312.png](https://s2.loli.net/2022/12/21/7GtHdDOTbMYW4Nn.png)
+![屏幕截图31223312.png](../assets/images/7GtHdDOTbMYW4Nn.png)
 
 - **<font color="red">明湖平原</font>**——地势平坦，原本平原东部是大片的森林，后面由于过量砍伐加上某人的大开发，已经变成了一大片平地了。撸树不建议在这里撸，因为树很少。
 - **<font color="red">北部森林</font>**——尚未开发，森林资源丰富，推荐如果需要大量木材到这儿砍伐。
@@ -16,7 +16,7 @@
 
 发现了没有？实际上我们服务器的出生点算不上有多么好，资源还算是比较稀缺的。而且由于我们服务器加模组的特殊性，出生点反而是模组资源最缺乏的地方。因此，虽然我推荐你去北部森林撸树，**但如果有能力，还是尽量坐船前往尚未有玩家涉及过的地方：**
 
-![屏幕截图(111).png](https://s2.loli.net/2022/12/21/fCcO8FX1Rs4vhQb.png)
+![屏幕截图(111).png](../assets/images/fCcO8FX1Rs4vhQb.png)
 
 在那里，你将会发现一种重要的资源：**橡胶树** - 发展工业的必要资源之一。同时，在那里撸树也很方便，因为那边生成的树是“动态的树”模组的树，挖一下最底端树就倒了。
 
@@ -31,11 +31,11 @@
 **实际上你并不需要真男人挖矿方式**，因为在这之前，已经有人帮忙把矿坑开好了。
 来到明湖城西北侧的工业区，你将会看到下图红圈处的入口，这就是矿道的进出口。
 
-![屏幕截图 312233.png](https://s2.loli.net/2022/12/21/MlSUj3cPVIub6FZ.png)
+![屏幕截图 312233.png](../assets/images/MlSUj3cPVIub6FZ.png)
 
 在这底下，是一片巨大的人工矿洞：
 
-![image.png](https://s2.loli.net/2022/12/21/fzQwDAVPYlvpytk.png)
+![image.png](../assets/images/fzQwDAVPYlvpytk.png)
 
 尽管矿道已经挖了这么多，但资源仍然数之不尽，非常适合各路人士前往挖矿。你将会在矿洞里发现各种各样的矿石：
 
@@ -45,7 +45,7 @@
 
 在明湖城的西北方，有一个小型的也是目前全服唯一的刷铁机：
 
-![image.png](https://s2.loli.net/2022/12/21/VpafjbAkeRDP8qu.png)
+![image.png](../assets/images/VpafjbAkeRDP8qu.png)
 
 刷铁机虽然效率不高，但也够用了。
 
@@ -90,7 +90,7 @@
 
 如果你还是要把基地建在较近的地方，这里推荐将基地建在如下几个位置：
 
-![giid.png](https://s2.loli.net/2022/12/21/fzT4OndCUbFiLRH.png)
+![giid.png](../assets/images/fzT4OndCUbFiLRH.png)
 
 **<font color="#FF5733">A  房山村 </font>**
 

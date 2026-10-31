@@ -33,7 +33,7 @@ SCP基金会:封锁（之后简称SCP）是我们服一个相当重要的模组�
 
 |SCP|值得注意的地方|
 |:-:|-|
-|<font style="color:red;">SCP **··/·····/··/·** </font>|如你所见，请**不要在游戏中说出这些点所代表的数字**，因为：<br/><center><img height="50%" width="50%" src="https://scp-wiki.wdfiles.com/local--files/scp-2521/documents4.png"/></center><br/>具体为什么你可以上网搜索有关内容。|
+|<font style="color:red;">SCP **··/·····/··/·** </font>|如你所见，请**不要在游戏中说出这些点所代表的数字**，因为：<br/><center><img height="50%" width="50%" src="../assets/images/scp-2521-documents4.png"/></center><br/>具体为什么你可以上网搜索有关内容。|
 |<font style="color:green;">SCP-914<br/>万能转换机</font>|万能转换机在本服是个很有用的东西。目前在明湖城的南边有一个。使用的时候只需要将东西投入输入口，然后在核心进行一番操作，等待其运转，最后的成品会从输出口吐出来。需要注意的是在转换的时候模式不要选错，否者可能会制造出你不想要的一些东西。<br/>你可以在JEI查看914的转换配方。<br/>另外914还有一个隐藏配方，**在Fine模式下（注意不要选错了），914可以修补一个装备的耐久值至满**。|
 
 ## SCP管控规则

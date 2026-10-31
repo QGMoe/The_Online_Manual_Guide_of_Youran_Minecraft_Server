@@ -37,19 +37,19 @@
 
 第一步：打开HMCL，将压缩包直接拖入HMCL界面中。
 
-![1.png](https://s2.loli.net/2022/12/20/rsjpbQBTmhP6aF8.png)
+![1.png](../assets/images/rsjpbQBTmhP6aF8.png)
 
 第二步：点击安装，启动器就会自动安装整合包。
 
-![image.png](https://s2.loli.net/2022/12/20/ghLCWBxljzwu3JK.png)
+![image.png](../assets/images/ghLCWBxljzwu3JK.png)
 
 第三步：不出意外的话，很快就会安装完成了。
 
-![image.png](https://s2.loli.net/2022/12/20/Lwol8feQGCXScyE.png)
+![image.png](../assets/images/Lwol8feQGCXScyE.png)
 
 第四步：启动游戏，即可直接进入服务器。如果无法一次性进入，可以手动在多人游戏界面进入服务器。
 
-![image.png](https://s2.loli.net/2022/12/20/xsWTYdU8NGpeaA3.png)
+![image.png](../assets/images/xsWTYdU8NGpeaA3.png)
 
 现在你就完成了整合包的安装。**但这不代表你现在就能加入我们的服务器，你还要获取我们服务器的白名单。**
 
@@ -107,7 +107,7 @@
 
 打开HMCL启动器，点击版本列表，找到需要更新的客户端。
 
-![image.png](https://s2.loli.net/2022/12/20/HSt2vAVxkTjZsrJ.png)
+![image.png](../assets/images/HSt2vAVxkTjZsrJ.png)
 
 点击右边的时钟按钮，就可以来到更新整合包界面。这时候请你将下载好的新版整合包文件拖入到启动器当中。接下来的内容就和上文的安装客户端一样了，这里就不再多说。
 
@@ -117,7 +117,7 @@
 
 来到版本列表界面，还是找到我们服务器的客户端。
 
-![image.png](https://s2.loli.net/2022/12/20/HSt2vAVxkTjZsrJ.png)
+![image.png](../assets/images/HSt2vAVxkTjZsrJ.png)
 
 点击右边的三个点，然后点击“删除该版本”就可以删除客户端。接下来的步骤就和安装客户端一模一样了，这里也不再多说。
 
