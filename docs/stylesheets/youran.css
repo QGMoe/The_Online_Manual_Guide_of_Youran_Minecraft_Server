@@ -5,7 +5,7 @@
  * 取值来源：
  *   - 主题色 accent / accent_fill / accent_fill_hover / accent_soft：面板 youran_web/themes.toml 的 id = "grass"（light / dark 两组）
  *   - 中性色 bg / card / soft / text / muted / border、阴影 shadow-sm / shadow-lg、语义色 ok / warn / danger：面板 youran_web/static/style.css
- *   - 字体栈 --font / --mono：官网 dist/assets/site.css（面板的 --font 更短，这里按要求取官网的）；圆角 10px / 14px：官网与面板相同
+ *   - 字体栈：正文取面板 style.css 的 --font（服主 10-31 定，只留必要的几个字体名），等宽取官网 dist/assets/site.css（与面板相同）；圆角 10px / 14px：官网与面板相同
  * 变量名沿用面板（--yr- 前缀），方便以后对照面板更新。
  *
  * 要换主题颜色，只改下面浅色、深色两段 --yr-* 变量；其余规则都是引用这些变量。
@@ -54,8 +54,8 @@ body[data-md-color-scheme="slate"] {
   --yr-radius: 10px;           /* 官网与面板的 --radius */
   --yr-radius-lg: 14px;        /* 官网与面板的 --radius-lg */
 
-  /* Material 的字体栈是 var(--md-text-font), -apple-system, ... ；font: false 时该变量没有值，这里直接给官网的字体栈 */
-  --md-text-font: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  /* Material 的字体栈是 var(--md-text-font), -apple-system, ... ；font: false 时该变量没有值，这里直接给面板的字体栈 */
+  --md-text-font: system-ui, "PingFang SC", "Microsoft YaHei", sans-serif;
   --md-code-font: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
 
