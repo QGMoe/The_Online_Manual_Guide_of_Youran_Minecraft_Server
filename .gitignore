@@ -1,11 +1,7 @@
-# Node rules:
-## Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
-.grunt
+# MkDocs 构建输出
+site/
 
-#图书导出目录
-_book
-
-#电子书导出
-*.epub
-*.mobi
-*.pdf
+# 本地虚拟环境、缓存
+.venv/
+venv/
+__pycache__/

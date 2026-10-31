@@ -1,0 +1,12 @@
+# 目录顺序与标题（原 GitBook 的 SUMMARY.md）。
+# 未列出的新页面（append_unmatched）自动排在已列出项目之后，标题取自页面里的第一个一级标题。
+append_unmatched: true
+nav:
+  - README.md
+  - section1
+  - section2
+  - section3
+  - 服务器官网: https://www.youranserver.top/
+  - 服务器MC百科页面: https://play.mcmod.cn/sv20185890.html
+  - 网页地图: http://map.youranserver.top
+  - 废弃的网页手册: https://www.yuque.com/youranserver/book

@@ -1,0 +1,69 @@
+site_name: 悠然MC服务器网页手册
+site_description: 悠然MC服务器(www.youranserver.top)的网页游玩手册
+site_author: qiguaideaaaa
+site_url: https://docs.youran.qingu.moe/
+
+docs_dir: docs
+site_dir: site
+# 保持与 GitBook 相同的 .html 地址（如 section1/Join_Youran_Server.html、section1/index.html）
+use_directory_urls: false
+exclude_docs: |
+  FOOTER.md
+
+hooks:
+  - hooks/footer.py
+  - hooks/gitbook_compat.py
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: zh
+  # 不加载 Google Fonts；字体栈在 stylesheets/youran.css 里设置
+  font: false
+  favicon: assets/images/youran-icon.png
+  palette:
+    # 跟随系统 / 浅色 / 深色，三者循环切换
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: 当前跟随系统，点击切换到浅色
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: 当前浅色，点击切换到深色
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: 当前深色，点击切换到跟随系统
+  features:
+    - navigation.indexes
+    - navigation.expand
+    - navigation.footer
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+extra_css:
+  - stylesheets/youran.css
+
+extra:
+  generator: false
+
+plugins:
+  - search:
+      lang: zh
+  # 按文件夹自动生成目录：顺序与标题写在各目录的 .nav.yml 里，新页面自动出现
+  - awesome-nav
+
+markdown_extensions:
+  - tables
+  - toc:
+      permalink: false
+  - pymdownx.tilde
