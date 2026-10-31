@@ -30,14 +30,14 @@ collections:
         media_folder: assets/images
         public_folder: assets/images
         fields:
-          - { name: body, label: 正文, widget: markdown, modes: [raw, rich_text] }
+          - { name: body, label: 正文, widget: markdown, modes: [raw] }
       - name: footer
         label: 页脚（显示在每页底部）
         file: docs/FOOTER.md
         media_folder: assets/images
         public_folder: assets/images
         fields:
-          - { name: body, label: 正文, widget: markdown, modes: [raw, rich_text] }
+          - { name: body, label: 正文, widget: markdown, modes: [raw] }
 
   # 各章：在对应章节下新建页面，不需要改目录——新页面会自动排在本章已有页面之后，标题取页面里的第一个一级标题（# 标题）
   - name: section1
@@ -52,7 +52,7 @@ collections:
     media_folder: ../assets/images
     public_folder: ../assets/images
     fields:
-      - { name: body, label: 正文, widget: markdown, modes: [raw, rich_text] }
+      - { name: body, label: 正文, widget: markdown, modes: [raw] }
 
   - name: section2
     label: 第二章 认识悠然
@@ -66,7 +66,7 @@ collections:
     media_folder: ../assets/images
     public_folder: ../assets/images
     fields:
-      - { name: body, label: 正文, widget: markdown, modes: [raw, rich_text] }
+      - { name: body, label: 正文, widget: markdown, modes: [raw] }
 
   - name: section3
     label: 第三章 生存前期
@@ -80,4 +80,4 @@ collections:
     media_folder: ../assets/images
     public_folder: ../assets/images
     fields:
-      - { name: body, label: 正文, widget: markdown, modes: [raw, rich_text] }
+      - { name: body, label: 正文, widget: markdown, modes: [raw] }
