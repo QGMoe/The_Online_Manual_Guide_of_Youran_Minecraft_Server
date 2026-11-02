@@ -11,6 +11,10 @@ backend:
     uploadMedia: "docs: 上传图片 {{path}}"
     deleteMedia: "docs: 删除图片 {{path}}"
 
+# 留空的可选字段不写进文件（各章页面的隐藏字段 title 平时为空，页面照旧没有 front matter）
+output:
+  omit_empty_optional_fields: true
+
 site_url: https://docs.youran.qingu.moe/
 display_url: https://docs.youran.qingu.moe/
 
@@ -52,6 +56,8 @@ collections:
     media_folder: ../assets/images
     public_folder: ../assets/images
     fields:
+      # 不在编辑界面里出现、也不写进文件（留空的可选字段不输出）；只为“目录顺序”里引用页面时能取到页面的第一个标题当显示名
+      - { name: title, widget: hidden, required: false }
       - { name: body, label: 正文, widget: markdown, modes: [raw] }
 
   - name: section2
@@ -66,6 +72,8 @@ collections:
     media_folder: ../assets/images
     public_folder: ../assets/images
     fields:
+      # 不在编辑界面里出现、也不写进文件（留空的可选字段不输出）；只为“目录顺序”里引用页面时能取到页面的第一个标题当显示名
+      - { name: title, widget: hidden, required: false }
       - { name: body, label: 正文, widget: markdown, modes: [raw] }
 
   - name: section3
@@ -80,4 +88,70 @@ collections:
     media_folder: ../assets/images
     public_folder: ../assets/images
     fields:
+      # 不在编辑界面里出现、也不写进文件（留空的可选字段不输出）；只为“目录顺序”里引用页面时能取到页面的第一个标题当显示名
+      - { name: title, widget: hidden, required: false }
       - { name: body, label: 正文, widget: markdown, modes: [raw] }
+
+  # 各章的页面顺序与章节标题：就是各章目录下的 .nav.yml（mkdocs-awesome-nav 读它生成侧栏）
+  - name: nav
+    label: 目录顺序
+    label_singular: 目录
+    editor: { preview: false }
+    files:
+      - name: section1
+        label: 第一章 的页面顺序
+        file: docs/section1/.nav.yml
+        fields:
+          - { name: title, label: 章节标题（侧栏里显示的章名）, widget: string }
+          - { name: append_unmatched, widget: hidden, default: true }
+          - name: nav
+            label: 页面顺序
+            hint: 拖动左边的把手调整顺序；侧栏照这个顺序排。没列在这里的页面（比如刚新建的）自动排在本章最后。
+            widget: list
+            field:
+              name: page
+              label: 页面
+              widget: relation
+              collection: section1
+              # 存成“文件名.md”（.nav.yml 的写法）；显示名：页面的 title 字段平时为空，为空时编辑工具自动用正文的第一个标题
+              value_field: "{{slug}}.md"
+              display_fields: ["{{title}}"]
+              search_fields: ["body"]
+      - name: section2
+        label: 第二章 的页面顺序
+        file: docs/section2/.nav.yml
+        fields:
+          - { name: title, label: 章节标题（侧栏里显示的章名）, widget: string }
+          - { name: append_unmatched, widget: hidden, default: true }
+          - name: nav
+            label: 页面顺序
+            hint: 拖动左边的把手调整顺序；侧栏照这个顺序排。没列在这里的页面（比如刚新建的）自动排在本章最后。
+            widget: list
+            field:
+              name: page
+              label: 页面
+              widget: relation
+              collection: section2
+              # 存成“文件名.md”（.nav.yml 的写法）；显示名：页面的 title 字段平时为空，为空时编辑工具自动用正文的第一个标题
+              value_field: "{{slug}}.md"
+              display_fields: ["{{title}}"]
+              search_fields: ["body"]
+      - name: section3
+        label: 第三章 的页面顺序
+        file: docs/section3/.nav.yml
+        fields:
+          - { name: title, label: 章节标题（侧栏里显示的章名）, widget: string }
+          - { name: append_unmatched, widget: hidden, default: true }
+          - name: nav
+            label: 页面顺序
+            hint: 拖动左边的把手调整顺序；侧栏照这个顺序排。没列在这里的页面（比如刚新建的）自动排在本章最后。
+            widget: list
+            field:
+              name: page
+              label: 页面
+              widget: relation
+              collection: section3
+              # 存成“文件名.md”（.nav.yml 的写法）；显示名：页面的 title 字段平时为空，为空时编辑工具自动用正文的第一个标题
+              value_field: "{{slug}}.md"
+              display_fields: ["{{title}}"]
+              search_fields: ["body"]

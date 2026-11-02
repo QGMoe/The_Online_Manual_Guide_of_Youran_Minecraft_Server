@@ -3,6 +3,6 @@ append_unmatched: true
 nav:
   - README.md
   - Minghu_City.md
-  - 服务器交通: Transpotation.md
+  - Transpotation.md
   - Maincity.md
   - Economy.md
