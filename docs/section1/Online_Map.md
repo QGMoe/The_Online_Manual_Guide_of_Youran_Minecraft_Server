@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 4
 ---
 
 # 网页地图
@@ -91,4 +91,3 @@ order: 2
 ![image.png](../assets/images/sJQPglorSB3CHme.png)
 
 <p>点击注册，你就完成了网页地图账号的注册！<font color="red">注意，请你最好将密码记下来或使用浏览器的密码箱保存帐户密码，密码一旦丢失不可找回！</font></p>
-
