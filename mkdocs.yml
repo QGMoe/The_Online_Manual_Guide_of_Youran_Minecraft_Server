@@ -9,12 +9,11 @@ site_dir: site
 use_directory_urls: false
 exclude_docs: |
   FOOTER.md
-  nav.yml
 
 hooks:
   - hooks/footer.py
   - hooks/gitbook_compat.py
-  - hooks/empty_title.py
+  - hooks/page_order.py
 
 theme:
   name: material
@@ -61,10 +60,9 @@ extra:
 plugins:
   - search:
       lang: zh
-  # 按文件夹自动生成目录：顺序与标题写在各目录的 nav.yml 里，新页面自动出现
-  # （不用默认的 .nav.yml：编辑工具 Sveltia CMS 会跳过以点开头的文件，“目录顺序”就读不到）
-  - awesome-nav:
-      filename: nav.yml
+  # 按文件夹自动生成目录：简介、三章的顺序与外链写在 docs/.nav.yml；各章页面的顺序写在页面开头的 order 里，
+  # 由 hooks/page_order.py 排序（编辑工具里在本章的页面列表中拖动即可）
+  - awesome-nav
 
 markdown_extensions:
   - tables

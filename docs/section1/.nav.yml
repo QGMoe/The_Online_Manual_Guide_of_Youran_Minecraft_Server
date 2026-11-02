@@ -1,0 +1,5 @@
+# 本章页面的顺序写在各页面开头的 order 里（编辑工具里在本章的页面列表中拖动即可），
+# 由钩子 hooks/page_order.py 排序；章节标题取本章 README.md 的第一个一级标题。这里只让 README（本章首页）排在最前。
+append_unmatched: true
+nav:
+  - README.md
