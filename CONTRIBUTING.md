@@ -17,13 +17,13 @@ python3 -m venv .venv
 
 ## 目录怎么管（不用改配置）
 
-目录由 [mkdocs-awesome-nav](https://lukasgeiter.github.io/mkdocs-awesome-nav/) 按文件夹生成，顺序与标题写在各目录的 `.nav.yml`：
+目录由 [mkdocs-awesome-nav](https://lukasgeiter.github.io/mkdocs-awesome-nav/) 按文件夹生成，顺序与标题写在各目录的 `nav.yml`：
 
-- `docs/.nav.yml`：简介、三章的顺序，以及侧栏底部的四条外链（服务器官网等）。
-- `docs/section*/.nav.yml`：本章标题和页面顺序。已列出的页面按所列顺序；**没列出的新页面自动排在本章末尾，标题取页面里的第一个一级标题**（`# 标题`）。所以在 CMS 里新建页面时，正文第一行写 `# 页面标题` 即可，不需要改任何配置。
-- 调整页面顺序：在 CMS 的“**目录顺序**”里选对应的章，拖动“页面顺序”里的条目（显示的是各页面的第一个标题），保存即可；也能在那里改章节标题。它改的就是各章的 `.nav.yml`。
-  - 侧栏里每页的名字一律取页面里的第一个一级标题（`.nav.yml` 里不再写 `标题: 文件.md` 这种自定义名字，CMS 也只存文件名）。
-  - 简介、三章的顺序和侧栏底部的外链（`docs/.nav.yml`）不在 CMS 里，照旧在 GitHub 上改。
+- `docs/nav.yml`：简介、三章的顺序，以及侧栏底部的四条外链（服务器官网等）。
+- `docs/section*/nav.yml`：本章标题和页面顺序。已列出的页面按所列顺序；**没列出的新页面自动排在本章末尾，标题取页面里的第一个一级标题**（`# 标题`）。所以在 CMS 里新建页面时，正文第一行写 `# 页面标题` 即可，不需要改任何配置。
+- 调整页面顺序：在 CMS 的“**目录顺序**”里选对应的章，拖动“页面顺序”里的条目（显示的是各页面的第一个标题），保存即可；也能在那里改章节标题。它改的就是各章的 `nav.yml`。
+  - 侧栏里每页的名字一律取页面里的第一个一级标题（`nav.yml` 里不再写 `标题: 文件.md` 这种自定义名字，CMS 也只存文件名）。
+  - 简介、三章的顺序和侧栏底部的外链（`docs/nav.yml`）不在 CMS 里，照旧在 GitHub 上改。
   - 各章页面在 CMS 里有一个看不见的 `title` 字段，只为“目录顺序”能显示页面标题；它平时为空，不会写进文件（`output.omit_empty_optional_fields`）。万一写出了空的 `title`，钩子 `hooks/empty_title.py` 会当作没写。
 
 ## 用 Sveltia CMS 编辑
@@ -38,7 +38,7 @@ python3 -m venv .venv
 4. 保存后 CMS 会直接提交到 `master`（提交信息形如 `docs: 修改页面 section1/Online_Map`），随后 Actions 自动构建发布，约一两分钟生效。
 5. 图片上传到 `docs/assets/images/`，与迁移进来的图片放在一起；页面里引用为 `../assets/images/文件名`。
 
-配置在 `docs/admin/config.yml`（后端 GitHub，仓库 `QGMoe/The_Online_Manual_Guide_of_Youran_Minecraft_Server`，分支 `master`）。新建页面的文件名自动取 `page-日期-时间`，不含正文标题；需要好看的网址时，在 GitHub 上把文件改名并同步 `.nav.yml`（改名后在“目录顺序”里重新选一下这一页）。
+配置在 `docs/admin/config.yml`（后端 GitHub，仓库 `QGMoe/The_Online_Manual_Guide_of_Youran_Minecraft_Server`，分支 `master`）。新建页面的文件名自动取 `page-日期-时间`，不含正文标题；需要好看的网址时，在 GitHub 上把文件改名并同步 `nav.yml`（改名后在“目录顺序”里重新选一下这一页）。
 
 ## 编辑模式、彩色文字与粗体
 
