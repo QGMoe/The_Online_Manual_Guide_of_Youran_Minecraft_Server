@@ -13,6 +13,7 @@ exclude_docs: |
 hooks:
   - hooks/footer.py
   - hooks/gitbook_compat.py
+  - hooks/empty_title.py
 
 theme:
   name: material
